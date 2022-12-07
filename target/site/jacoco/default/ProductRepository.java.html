@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProductRepository.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Radio1</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">ProductRepository.java</span></div><h1>ProductRepository.java</h1><pre class="source lang-java linenums"><span class="fc" id="L1">public class ProductRepository {</span>
+<span class="fc" id="L2">    private Product[] repo = new Product[0];</span>
+
+    public void save(Product product) {
+<span class="fc" id="L5">        Product[] item = new Product[repo.length + 1];</span>
+<span class="fc bfc" id="L6" title="All 2 branches covered.">        for (int i = 0; i &lt; repo.length; i++) {</span>
+<span class="fc" id="L7">            item[i] = repo[i];</span>
+        }
+<span class="fc" id="L9">        item[item.length - 1] = product;</span>
+<span class="fc" id="L10">        repo = item;</span>
+<span class="fc" id="L11">    }</span>
+
+    public void removeById(int id) {
+<span class="fc" id="L14">        Product[] item = new Product[repo.length - 1];</span>
+<span class="fc" id="L15">        int index = 0;</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        for (Product tmp : repo) {</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">            if (tmp.getId() != id){</span>
+<span class="fc" id="L18">                item[index] = tmp;</span>
+<span class="fc" id="L19">                index++;</span>
+            }
+<span class="fc" id="L21">            repo = item;</span>
+        }
+<span class="fc" id="L23">    }</span>
+
+    public Product[] findAll(){
+<span class="fc" id="L26">        return repo;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
