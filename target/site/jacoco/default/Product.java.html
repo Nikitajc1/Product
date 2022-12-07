@@ -3,37 +3,42 @@
     protected int id;
     protected String name;
     protected int price;
-<span class="fc" id="L6">    public Product(int id, String name, int price) {</span>
-<span class="fc" id="L7">        this.id = id;</span>
-<span class="fc" id="L8">        this.name = name;</span>
-<span class="fc" id="L9">        this.price = price;</span>
-<span class="fc" id="L10">    }</span>
 
-    public int getId() {
-<span class="fc" id="L13">        return id;</span>
+<span class="fc" id="L7">    public Product(int id, String name, int price) {</span>
+<span class="fc" id="L8">        this.id = id;</span>
+<span class="fc" id="L9">        this.name = name;</span>
+<span class="fc" id="L10">        this.price = price;</span>
+<span class="fc" id="L11">    }</span>
+
+    public boolean matches(String search) {
+<span class="fc" id="L14">        return getName().contains(search);</span>
     }
 
-    public int setId(int id) {
-<span class="fc" id="L17">        this.id = id;</span>
+    public int getId() {
 <span class="fc" id="L18">        return id;</span>
     }
 
-    public String getName() {
-<span class="fc" id="L22">        return name;</span>
+    public int setId(int id) {
+<span class="fc" id="L22">        this.id = id;</span>
+<span class="fc" id="L23">        return id;</span>
     }
 
-    public String setName(String name) {
-<span class="fc" id="L26">        this.name = name;</span>
+    public String getName() {
 <span class="fc" id="L27">        return name;</span>
     }
 
+    public String setName(String name) {
+<span class="fc" id="L31">        this.name = name;</span>
+<span class="fc" id="L32">        return name;</span>
+    }
+
     public int getPrice() {
-<span class="fc" id="L31">        return price;</span>
+<span class="fc" id="L36">        return price;</span>
     }
 
     public int setPrice(int price) {
-<span class="fc" id="L35">        this.price = price;</span>
-<span class="fc" id="L36">        return price;</span>
+<span class="fc" id="L40">        this.price = price;</span>
+<span class="fc" id="L41">        return price;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

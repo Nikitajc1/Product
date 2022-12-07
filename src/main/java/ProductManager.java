@@ -13,14 +13,14 @@ public class ProductManager {
         return repos.findAll();
     }
 
-    public boolean matches(Product product, String search) {
-        return product.getName().contains(search);
-    }
+//    public boolean matches(Product product, String search) {
+//        return product.getName().contains(search);
+//    }
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[1];
         for (Product product : repos.findAll()) {
-            if (matches(product, text)) {
+            if (product.matches(text)) {
                 result[0] = product;
             }
         }

@@ -13,14 +13,14 @@
 <span class="fc" id="L13">        return repos.findAll();</span>
     }
 
-    public boolean matches(Product product, String search) {
-<span class="fc" id="L17">        return product.getName().contains(search);</span>
-    }
+//    public boolean matches(Product product, String search) {
+//        return product.getName().contains(search);
+//    }
 
     public Product[] searchBy(String text) {
 <span class="fc" id="L21">        Product[] result = new Product[1];</span>
 <span class="fc bfc" id="L22" title="All 2 branches covered.">        for (Product product : repos.findAll()) {</span>
-<span class="fc bfc" id="L23" title="All 2 branches covered.">            if (matches(product, text)) {</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">            if (product.matches(text)) {</span>
 <span class="fc" id="L24">                result[0] = product;</span>
             }
         }
