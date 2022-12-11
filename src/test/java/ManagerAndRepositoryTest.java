@@ -9,7 +9,7 @@ public class ManagerAndRepositoryTest {
     Product item1 = new Product(1, "свитер", 999);
     Product item2 = new Product(2, "джинсы", 5999);
     Product item3 = new Product(3, "некробук", 9999);
-    Book item4 = new Book(1,"1984", 3333, "Д. Кенеди");
+    Book item4 = new Book(4, "1984", 3333, "Д. Кенеди");
     Smartphone item5 = new Smartphone(281, "Juice", 199999, "China");
 
     @Test
@@ -37,7 +37,7 @@ public class ManagerAndRepositoryTest {
     }
 
     @Test
-    public void removeTest() {
+    public void removeTest() throws Exception {
         manager.add(item1);
         manager.add(item2);
         manager.add(item3);
@@ -47,6 +47,17 @@ public class ManagerAndRepositoryTest {
         Product[] actual = manager.findAllManager();
 
         Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void removeTestIfNull() throws Exception {
+        manager.add(item1);
+        manager.add(item2);
+        manager.add(item3);
+
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            manager.removeManager(item4.getId());
+        });
     }
 
     @Test
@@ -91,12 +102,12 @@ public class ManagerAndRepositoryTest {
 
     @Test
     public void Book() {
-        Book name = new Book(1,"1984", 3333, "Д. Кенеди");
+        Book name = new Book(1, "1984", 3333, "Д. Кенеди");
     }
 
     @Test
     public void Smartphone() {
-        Smartphone name = new Smartphone(2,"Mooba", 9333, "China");
+        Smartphone name = new Smartphone(2, "Mooba", 9333, "China");
     }
 
     @Test
@@ -191,4 +202,29 @@ public class ManagerAndRepositoryTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
+    @Test
+    public void findByIdTest() {
+        manager.add(item1);
+        manager.add(item2);
+        manager.add(item3);
+
+        Product expected = item2;
+        Product actual = product.findById(2);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void findByIdTestIfNull() {
+        manager.add(item1);
+        manager.add(item2);
+        manager.add(item3);
+
+        Product expected = null;
+        Product actual = product.findById(55);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 }

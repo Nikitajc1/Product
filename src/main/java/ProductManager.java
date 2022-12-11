@@ -13,10 +13,6 @@ public class ProductManager {
         return repos.findAll();
     }
 
-//    public boolean matches(Product product, String search) {
-//        return product.getName().contains(search);
-//    }
-
     public Product[] searchBy(String text) {
         Product[] result = new Product[1];
         for (Product product : repos.findAll()) {
@@ -28,7 +24,7 @@ public class ProductManager {
         return result;
     }
 
-    public void removeManager(int id) {
+    public void removeManager(int id) throws Exception{
         repos.removeById(id);
     }
 }
